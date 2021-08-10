@@ -42,4 +42,17 @@ public class InvoiceServiceTest {
         double fare = invoiceGenerator.calculateFare(distance,time);
         Assert.assertEquals(5, fare, 0.0);
     }
+
+    /**
+     * Step 2
+     * Purpose : Given distance and time for multiple rides,
+     *           return the aggregate total for all the rides
+     */
+    @Test
+    public void givenMultipleRides_ShouldReturnTotalFare() {
+        Ride[] rides = { new Ride(2.0, 5),
+                new Ride(0.1, 1) };
+        double fare = invoiceGenerator.calculateTotalFare(rides);
+        Assert.assertEquals(30, fare, 0.0);
+    }
 }
